@@ -296,12 +296,136 @@ Ik heb nog veel te leren, vooral in het sneller herkennen van configuratiefouten
           <div class="week-entry" id="week3">
             <div class="week-meta">
               <span class="week-num">W3</span>
-              <span class="week-dates">Datum: __ / __ / 2026</span>
-              <span class="week-badge badge-wip">In progress</span>
+              <span class="week-dates">Datum: 23 / 02 / 2026</span>
+              <span class="week-badge badge-wip">Afgerond</span>
             </div>
             <div class="week-title">Week 3 — vul titel in</div>
             <div class="week-body">
-              <p>Beschrijf hier wat je deed in week 3.</p>
+              <p> Uitgevoerde taken: <br>
+• Site-to-Site VPN configuratie tussen meerdere firewalls <br>
+• OSPF configuratie en troubleshooting <br>
+• Integratie tussen Cisco ASA en Palo Alto firewall <br>
+• Routingproblemen analyseren en oplossen <br>
+• Begrijpen van policy-based vs route-based VPN <br>
+Uitgevoerde werkzaamheden: <br>
+Configuratie Site-to-Site VPN (ASA ↔ ASA) <br>
+Ik heb een IPsec Site-to-Site VPN opgezet tussen twee Cisco ASA firewalls.<br>
+Uitgevoerde stappen:<br>
+• Configuratie van IKEv1 policy<br>
+• Configuratie van pre-shared keys<br>
+• Aanmaken van crypto ACL (interesting traffic)<br>
+• Configuratie van crypto map<br>
+• Toepassen crypto map op de juiste interface<br>
+• NAT-exempt configuratie<br>
+Resultaat:
+• Tunnel kwam succesvol op<br>
+• IPsec SA was actief<br>
+• Verkeer tussen VLAN's kon succesvol passeren<br>
+• OSPF werkte over de transit link<br>
+OSPF configuratie tussen firewalls<br>
+Ik heb OSPF geconfigureerd op beide ASA firewalls.<br>
+Configuratie:<br>
+• router ospf 1<br>
+• Router-ID ingesteld<br>
+• Networks toegevoegd in area 0<br>
+• OSPF netwerk type aangepast<br>
+• MTU issues opgelost met ospf mtu-ignore<br>
+
+Probleem:<br>
+OSPF bleef hangen in:<br>
+INIT<br>
+EXSTART<br>
+Oorzaak:<br>
+• MTU mismatch<br>
+• Network-type mismatch<br>
+• DR/BDR election issues<br>
+Oplossing:<br>
+• OSPF network type correct gezet<br>
+• MTU ignore geconfigureerd<br>
+• OSPF process gereset<br>
+Resultaat:<br>
+• OSPF adjacency FULL<br>
+• Routes correct geleerd<br>
+VPN tussen ASA en Palo Alto<br>
+Hier ontstonden meerdere complexe problemen.<br>
+Initiële situatie:<br>
+• ASA werkte policy-based (crypto map)<br>
+• Palo werkte route-based (tunnel interface)<br>
+• Tunnel kwam op<br>
+• Encaps steeg<br>
+• Decaps bleef 0<br>
+2.2 Probleemanalyse<br>
+Door debug en packet-tracer analyse heb ik vastgesteld:<br>
+Problemen die ik tegenkwam:<br>
+1. ACL die verkeer blokkeerde op ASA<br>
+2. Verkeerde static routes op Palo<br>
+3. Tunnel interface mismatch<br>
+4. Routing die niet naar tunnel.2 wees<br>
+5. Policy-based ↔ route-based verschil<br>
+2.3 Belangrijk inzicht: Policy vs Route-Based VPN<br>
+Ik heb geleerd dat:<br>
+Policy-Based VPN (ASA):<br>
+• Encryptie gebeurt op basis van ACL match<br>
+• Routing kan naar fysieke peer IP wijzen<br>
+• Geen tunnel interface nodig<br>
+Route-Based VPN (Palo):<br>
+• Routing bepaalt encryptie<br>
+• Verkeer moet expliciet via tunnel interface gaan<br>
+• Static route moet naar tunnel.2 wijzen<br>
+Dit verschil veroorzaakte asymmetrische routing.<br>
+Routing correctie op Palo<br>
+Oplossing:<br>
+• Static route naar remote subnet verwijderd<br>
+• Nieuwe static route toegevoegd via tunnel.1 / tunnel.2<br>
+• Security policies gecontroleerd<br>
+• NAT policies gecontroleerd<br>
+Hierdoor kon return traffic correct via de tunnel worden gestuurd.<br>
+Debugging technieken toegepast<br>
+Ik heb gewerkt met:<br>
+ASA:<br>
+• show crypto ikev1 sa<br>
+• show crypto ipsec sa<br>
+• debug crypto ikev1<br>
+• debug crypto ipsec<br>
+• packet-tracer<br>
+• show route ospf<br> 
+                <br> 
+
+Palo:<br>
+• show vpn ipsec-sa<br>
+• show routing route<br>
+• show running security-policy<br>
+• show routing protocol ospf interface<br>
+2.6 Wat heb ik deze week geleerd?<br>
+• Verschil tussen policy-based en route-based VPN<br>
+• Hoe IPsec encrypt/decrypt counters te analyseren<br>
+• Hoe asymmetrische routing VPN kan breken<br>
+• OSPF troubleshooting (INIT / EXSTART / FULL states)<br>
+• MTU gerelateerde OSPF problemen<br>
+• Correct gebruik van NAT exemption bij VPN<br>
+• Hoe security policies invloed hebben op VPN traffic<br> 
+                <br>
+Uitdagingen<br>
+• OSPF bleef hangen in INIT/EXSTART<br>
+• VPN tunnel was up maar geen verkeer
+• Decaps bleef 0<br>
+• Routing op Palo stuurde verkeer buiten tunnel<br>
+• Mix van policy-based en route-based zorgde voor verwarring<br>
+Resultaat van week 3:<br>
+Aan het einde van de week:<br>
+• ASA ↔ ASA VPN volledig werkend<br>
+• OSPF correct geconfigureerd<br>
+• ASA ↔ Palo tunnel correct geanalyseerd en grotendeels opgelost<br>
+• Diep begrip opgebouwd van IPsec architectuur<br>
+• Complex netwerkprobleem zelfstandig kunnen analyseren<br>
+Reflectie<br>
+                <br>
+Deze week was technisch zeer uitdagend maar leerzaam.<br>
+Ik heb geleerd hoe belangrijk routing is bij VPN-oplossingen en hoe kleine<br>
+configuratiefouten grote impact kunnen hebben.<br>
+Door systematisch te debuggen en logisch te analyseren kon ik stap voor<br>
+stap de problemen isoleren en oplossen.<br>
+</p>
             </div>
             <div class="tasks-list">
               <div class="task-item"><div class="task-check pending">→</div><span>Taak 1 — vul in</span></div>
