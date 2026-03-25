@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stage — Ahmer Siddiqui</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080c10; --surface: #0d1117; --border: #1e2530;
+      --accent: #00e5ff; --accent2: #7b61ff;
+      --text: #e8edf2; --muted: #6b7a8d; --card: #111820;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; font-size: 14px; line-height: 1.7; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 999; opacity: 0.5; }
+    body::after { content: ''; position: fixed; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 48px 48px; opacity: 0.35; pointer-events: none; z-index: 0; }
+    .glow-orb { position: fixed; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(123,97,255,0.07) 0%, transparent 70%); top: -150px; left: -100px; pointer-events: none; z-index: 1; }
+    .glow-orb2 { position: fixed; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(0,229,255,0.05) 0%, transparent 70%); bottom: 100px; right: -100px; pointer-events: none; z-index: 1; }
+
+    .wrap { position: relative; z-index: 10; max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; border-bottom: 1px solid var(--border); background: rgba(8,12,16,0.85); backdrop-filter: blur(16px); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .nav-badge { background: rgba(0,229,255,0.1); border: 1px solid rgba(0,229,255,0.3); color: var(--accent); font-size: 11px; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; }
+
+    .page-hero { padding: 140px 0 60px; opacity: 0; animation: fadeUp 0.7s 0.2s forwards; }
+    .page-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--accent2); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
+    .page-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent2); }
+    .page-hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(36px, 5vw, 64px); font-weight: 800; letter-spacing: -2px; margin-bottom: 16px; }
+    .page-hero h1 span { background: linear-gradient(135deg, var(--accent2), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-hero p { color: var(--muted); max-width: 560px; line-height: 1.9; }
+    .divider { height: 1px; background: var(--border); margin: 48px 0; }
+
+    .section-head { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+    .section-num { font-size: 11px; color: var(--accent); letter-spacing: 0.1em; }
+    .section-title { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    /* STAGE INFO GRID */
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 64px; }
+    .info-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 28px 24px; transition: border-color 0.2s, transform 0.2s; opacity: 0; animation: fadeUp 0.6s forwards; }
+    .info-card:nth-child(1) { animation-delay: 0.3s; }
+    .info-card:nth-child(2) { animation-delay: 0.4s; }
+    .info-card:nth-child(3) { animation-delay: 0.5s; }
+    .info-card:nth-child(4) { animation-delay: 0.6s; }
+    .info-card:hover { border-color: var(--accent2); transform: translateY(-3px); }
+    .info-card-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .info-card-value { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--text); }
+    .info-card-value.accent { color: var(--accent); }
+    .info-card-value.accent2 { color: var(--accent2); }
+    .info-card-sub { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: var(--border); }
+    .timeline-item { position: relative; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.6s forwards; }
+    .timeline-item:nth-child(1) { animation-delay: 0.3s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.45s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.75s; }
+    .timeline-item:nth-child(5) { animation-delay: 0.9s; }
+    .timeline-dot { position: absolute; left: -38px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent2); }
+    .timeline-item.done .timeline-dot { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 8px rgba(0,229,255,0.4); }
+    .timeline-week { font-size: 11px; color: var(--accent2); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+    .timeline-title { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .timeline-desc { color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .tag { background: rgba(123,97,255,0.1); border: 1px solid rgba(123,97,255,0.25); color: var(--accent2); font-size: 11px; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.05em; }
+
+    /* LEERDOELEN */
+    .goals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .goal-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 24px; display: flex; gap: 16px; align-items: flex-start; transition: border-color 0.2s; opacity: 0; animation: fadeUp 0.6s forwards; }
+    .goal-card:nth-child(1) { animation-delay: 0.3s; }
+    .goal-card:nth-child(2) { animation-delay: 0.4s; }
+    .goal-card:nth-child(3) { animation-delay: 0.5s; }
+    .goal-card:nth-child(4) { animation-delay: 0.6s; }
+    .goal-card:hover { border-color: var(--accent); }
+    .goal-icon { font-size: 22px; flex-shrink: 0; }
+    .goal-title { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .goal-desc { color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+    section { padding: 64px 0; }
+    footer { border-top: 1px solid var(--border); padding: 32px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; position: relative; z-index: 10; }
+    footer span { color: var(--muted); font-size: 12px; }
+    footer .accent { color: var(--accent); }
+    footer a { color: var(--muted); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 700px) { .goals-grid { grid-template-columns: 1fr; } .nav-links { display: none; } .nav-badge { display: none; } }
+  </style>
+</head>
+<body>
+  <div class="glow-orb"></div>
+  <div class="glow-orb2"></div>
+
+  <nav>
+    <div class="wrap nav-inner">
+      <a href="index.html" class="nav-logo">AH<span>.</span>MER</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="internship.html" class="active">Stage</a></li>
+        <li><a href="projects.html">Projecten</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <span class="nav-badge">● Beschikbaar voor stage</span>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <div class="page-hero">
+      <div class="page-tag">Stage 2026</div>
+      <h1>Mijn <span>Stageplek</span></h1>
+      <p>Overzicht van mijn stageperiode als student Netwerk- en Systeembeheer — doelen, activiteiten en ervaringen.</p>
+    </div>
+    <div class="divider"></div>
+
+    <!-- INFO CARDS -->
+    <section>
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Stage-overzicht</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">Bedrijf</div>
+          <div class="info-card-value accent2">Nog te bevestigen</div>
+          <div class="info-card-sub">Op zoek naar een geschikte stageplek</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Periode</div>
+          <div class="info-card-value">2026</div>
+          <div class="info-card-sub">Schooljaar 2025–2026</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Richting</div>
+          <div class="info-card-value">NSB</div>
+          <div class="info-card-sub">Netwerk- en Systeembeheer</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Status</div>
+          <div class="info-card-value accent">● Actief zoekend</div>
+          <div class="info-card-sub">Beschikbaar voor contact</div>
+        </div>
+      </div>
+
+      <!-- LEERDOELEN -->
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Leerdoelen</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="goals-grid">
+        <div class="goal-card">
+          <div class="goal-icon">🌐</div>
+          <div>
+            <div class="goal-title">Netwerkbeheer in de praktijk</div>
+            <div class="goal-desc">Ervaring opdoen met het configureren en beheren van echte netwerkapparatuur (switches, routers, firewalls) in een bedrijfsomgeving.</div>
+          </div>
+        </div>
+        <div class="goal-card">
+          <div class="goal-icon">🖥️</div>
+          <div>
+            <div class="goal-title">Serverbeheer & Virtualisatie</div>
+            <div class="goal-desc">Windows Server en Linux-systemen beheren, en virtuele omgevingen opzetten met VMware of Hyper-V.</div>
+          </div>
+        </div>
+        <div class="goal-card">
+          <div class="goal-icon">🔐</div>
+          <div>
+            <div class="goal-title">Beveiliging & Monitoring</div>
+            <div class="goal-desc">Inzicht krijgen in beveiligingsprotocollen, firewallregels en netwerkmonitoring-tools zoals Nagios of Zabbix.</div>
+          </div>
+        </div>
+        <div class="goal-card">
+          <div class="goal-icon">🤝</div>
+          <div>
+            <div class="goal-title">Professionele werkervaring</div>
+            <div class="goal-desc">Leren werken in een IT-team, tickets behandelen via een helpdesk-systeem en communiceren met eindgebruikers.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIJDLIJN -->
+    <section>
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Geplande activiteiten</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-week">Week 1–2</div>
+          <div class="timeline-title">Onboarding & kennismaking</div>
+          <div class="timeline-desc">Kennismaken met de IT-infrastructuur, collega's en interne processen van het bedrijf. Toegang krijgen tot systemen en tools.</div>
+          <div class="tag-list"><span class="tag">Onboarding</span><span class="tag">Documentatie</span></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-week">Week 3–5</div>
+          <div class="timeline-title">Netwerk- en serverbeheer</div>
+          <div class="timeline-desc">Actief deelnemen aan dagelijkse beheer­taken: netwerkconfiguratie, serverpatch­management en gebruikers­beheer via Active Directory.</div>
+          <div class="tag-list"><span class="tag">Cisco</span><span class="tag">Windows Server</span><span class="tag">Active Directory</span></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-week">Week 6–8</div>
+          <div class="timeline-title">Virtualisatie & Cloud</div>
+          <div class="timeline-desc">Werken met VMware-omgevingen, virtuele machines deployen en beheren, en kennismaken met cloudoplossingen.</div>
+          <div class="tag-list"><span class="tag">VMware</span><span class="tag">Hyper-V</span><span class="tag">Azure</span></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-week">Week 9–11</div>
+          <div class="timeline-title">Stage-project</div>
+          <div class="timeline-desc">Een zelfstandig project uitwerken dat aansluit bij de noden van het bedrijf, bijv. een netwerksegmentatie of monitoring-dashboard.</div>
+          <div class="tag-list"><span class="tag">Project</span><span class="tag">Troubleshooting</span><span class="tag">Documentatie</span></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-week">Week 12–13</div>
+          <div class="timeline-title">Presentatie & afronding</div>
+          <div class="timeline-desc">Het stage-project presenteren aan de begeleiders, stageverslag afwerken en evaluatiegesprek voeren.</div>
+          <div class="tag-list"><span class="tag">Presentatie</span><span class="tag">Rapport</span><span class="tag">Evaluatie</span></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2026 <span class="accent">Ahmer Siddiqui</span></span>
+      <div style="display:flex;gap:24px;">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projecten</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
