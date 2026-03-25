@@ -9,7 +9,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #080c10; --surface: #0d1117; --border: #1e2530;
+      --bg: #080c10; --border: #1e2530;
       --accent: #00e5ff; --accent2: #7b61ff;
       --text: #e8edf2; --muted: #6b7a8d; --card: #111820;
     }
@@ -29,14 +29,14 @@
     .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--accent); }
-    .nav-badge { background: rgba(0,229,255,0.1); border: 1px solid rgba(0,229,255,0.3); color: var(--accent); font-size: 11px; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; }
+    .nav-badge { background: rgba(0,229,255,0.1); border: 1px solid rgba(0,229,255,0.3); color: var(--accent); font-size: 11px; padding: 4px 12px; border-radius: 20px; }
 
     .page-hero { padding: 140px 0 60px; opacity: 0; animation: fadeUp 0.7s 0.2s forwards; }
     .page-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--accent2); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
     .page-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent2); }
     .page-hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(36px, 5vw, 64px); font-weight: 800; letter-spacing: -2px; margin-bottom: 16px; }
     .page-hero h1 span { background: linear-gradient(135deg, var(--accent2), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .page-hero p { color: var(--muted); max-width: 560px; line-height: 1.9; }
+    .page-hero p { color: var(--muted); max-width: 600px; line-height: 1.9; }
     .divider { height: 1px; background: var(--border); margin: 48px 0; }
 
     .section-head { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
@@ -44,48 +44,68 @@
     .section-title { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
     .section-line { flex: 1; height: 1px; background: var(--border); }
 
-    /* STAGE INFO GRID */
-    .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 64px; }
-    .info-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 28px 24px; transition: border-color 0.2s, transform 0.2s; opacity: 0; animation: fadeUp 0.6s forwards; }
-    .info-card:nth-child(1) { animation-delay: 0.3s; }
-    .info-card:nth-child(2) { animation-delay: 0.4s; }
-    .info-card:nth-child(3) { animation-delay: 0.5s; }
-    .info-card:nth-child(4) { animation-delay: 0.6s; }
-    .info-card:hover { border-color: var(--accent2); transform: translateY(-3px); }
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-bottom: 64px; }
+    .info-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 24px 20px; opacity: 0; animation: fadeUp 0.6s forwards; }
+    .info-card:nth-child(1) { animation-delay: 0.3s; } .info-card:nth-child(2) { animation-delay: 0.4s; }
+    .info-card:nth-child(3) { animation-delay: 0.5s; } .info-card:nth-child(4) { animation-delay: 0.6s; }
     .info-card-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
-    .info-card-value { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--text); }
+    .info-card-value { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; }
     .info-card-value.accent { color: var(--accent); }
     .info-card-value.accent2 { color: var(--accent2); }
-    .info-card-sub { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    .info-card-sub { font-size: 11px; color: var(--muted); margin-top: 5px; }
 
-    /* TIMELINE */
-    .timeline { position: relative; padding-left: 32px; }
-    .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: var(--border); }
-    .timeline-item { position: relative; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.6s forwards; }
-    .timeline-item:nth-child(1) { animation-delay: 0.3s; }
-    .timeline-item:nth-child(2) { animation-delay: 0.45s; }
-    .timeline-item:nth-child(3) { animation-delay: 0.6s; }
-    .timeline-item:nth-child(4) { animation-delay: 0.75s; }
-    .timeline-item:nth-child(5) { animation-delay: 0.9s; }
-    .timeline-dot { position: absolute; left: -38px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent2); }
-    .timeline-item.done .timeline-dot { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 8px rgba(0,229,255,0.4); }
-    .timeline-week { font-size: 11px; color: var(--accent2); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
-    .timeline-title { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 8px; }
-    .timeline-desc { color: var(--muted); font-size: 13px; line-height: 1.8; }
-    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .tag { background: rgba(123,97,255,0.1); border: 1px solid rgba(123,97,255,0.25); color: var(--accent2); font-size: 11px; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.05em; }
+    /* NOTICE */
+    .notice { background: rgba(123,97,255,0.06); border: 1px dashed rgba(123,97,255,0.3); border-radius: 8px; padding: 14px 18px; font-size: 12px; color: var(--accent2); margin-bottom: 32px; }
+    .notice strong { color: var(--text); }
 
-    /* LEERDOELEN */
-    .goals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .goal-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 24px; display: flex; gap: 16px; align-items: flex-start; transition: border-color 0.2s; opacity: 0; animation: fadeUp 0.6s forwards; }
-    .goal-card:nth-child(1) { animation-delay: 0.3s; }
-    .goal-card:nth-child(2) { animation-delay: 0.4s; }
-    .goal-card:nth-child(3) { animation-delay: 0.5s; }
-    .goal-card:nth-child(4) { animation-delay: 0.6s; }
-    .goal-card:hover { border-color: var(--accent); }
-    .goal-icon { font-size: 22px; flex-shrink: 0; }
-    .goal-title { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 6px; }
-    .goal-desc { color: var(--muted); font-size: 13px; line-height: 1.7; }
+    /* WEEKS LAYOUT */
+    .weeks-layout { display: grid; grid-template-columns: 180px 1fr; gap: 0; }
+    .week-nav { position: sticky; top: 80px; height: fit-content; padding-right: 28px; border-right: 1px solid var(--border); }
+    .week-nav-title { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .week-nav a { display: flex; align-items: center; gap: 10px; color: var(--muted); text-decoration: none; font-size: 12px; padding: 7px 0; border-right: 2px solid transparent; margin-right: -1px; transition: color 0.2s, border-color 0.2s; }
+    .week-nav a:hover, .week-nav a.active { color: var(--accent); border-right-color: var(--accent); }
+    .week-nav a .wn-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); flex-shrink: 0; transition: background 0.2s; }
+    .week-nav a:hover .wn-dot, .week-nav a.active .wn-dot { background: var(--accent); }
+
+    .weeks-content { padding-left: 40px; }
+    .week-entry { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--border); opacity: 0; animation: fadeUp 0.6s forwards; }
+    .week-entry:nth-child(1) { animation-delay: 0.2s; } .week-entry:nth-child(2) { animation-delay: 0.3s; }
+    .week-entry:nth-child(3) { animation-delay: 0.4s; } .week-entry:nth-child(4) { animation-delay: 0.5s; }
+    .week-entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .week-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+    .week-num { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; color: var(--accent); letter-spacing: -1px; }
+    .week-dates { font-size: 11px; color: var(--muted); }
+    .week-badge { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; }
+    .badge-done { background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.2); color: var(--accent); }
+    .badge-wip  { background: rgba(123,97,255,0.08); border: 1px solid rgba(123,97,255,0.2); color: var(--accent2); }
+    .badge-upcoming { background: rgba(107,122,141,0.08); border: 1px solid rgba(107,122,141,0.2); color: var(--muted); }
+
+    .week-title { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; }
+    .week-body { color: var(--muted); font-size: 13px; line-height: 1.9; margin-bottom: 20px; }
+    .week-body p { margin-bottom: 10px; } .week-body p:last-child { margin-bottom: 0; }
+    .week-body strong { color: var(--text); font-weight: 500; }
+
+    .tasks-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .task-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--muted); }
+    .task-check { width: 16px; height: 16px; border-radius: 3px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; font-size: 10px; }
+    .task-check.done { background: rgba(0,229,255,0.1); border-color: var(--accent); color: var(--accent); }
+    .task-check.pending { background: rgba(123,97,255,0.1); border-color: var(--accent2); color: var(--accent2); }
+
+    .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { background: rgba(123,97,255,0.08); border: 1px solid rgba(123,97,255,0.2); color: var(--accent2); font-size: 11px; padding: 3px 10px; border-radius: 20px; }
+    .tag.net { background: rgba(0,229,255,0.08); border-color: rgba(0,229,255,0.2); color: var(--accent); }
+
+    /* SKILLS GAINED */
+    .skills-gained { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+    .skill-gained { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; display: flex; gap: 14px; align-items: flex-start; transition: border-color 0.2s; opacity: 0; animation: fadeUp 0.6s forwards; }
+    .skill-gained:nth-child(1){animation-delay:0.2s} .skill-gained:nth-child(2){animation-delay:0.3s}
+    .skill-gained:nth-child(3){animation-delay:0.4s} .skill-gained:nth-child(4){animation-delay:0.5s}
+    .skill-gained:nth-child(5){animation-delay:0.6s} .skill-gained:nth-child(6){animation-delay:0.7s}
+    .skill-gained:hover { border-color: var(--accent); }
+    .sg-icon { font-size: 20px; flex-shrink: 0; }
+    .sg-name { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .sg-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
 
     section { padding: 64px 0; }
     footer { border-top: 1px solid var(--border); padding: 32px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; position: relative; z-index: 10; }
@@ -95,7 +115,8 @@
     footer a:hover { color: var(--accent); }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 700px) { .goals-grid { grid-template-columns: 1fr; } .nav-links { display: none; } .nav-badge { display: none; } }
+    @media (max-width: 800px) { .weeks-layout { grid-template-columns: 1fr; } .week-nav { display: none; } .weeks-content { padding-left: 0; } }
+    @media (max-width: 700px) { .nav-links { display: none; } .nav-badge { display: none; } }
   </style>
 </head>
 <body>
@@ -111,19 +132,18 @@
         <li><a href="projects.html">Projecten</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <span class="nav-badge">● Beschikbaar voor stage</span>
+      <span class="nav-badge">● Stage bezig</span>
     </div>
   </nav>
 
   <div class="wrap">
     <div class="page-hero">
-      <div class="page-tag">Stage 2026</div>
-      <h1>Mijn <span>Stageplek</span></h1>
-      <p>Overzicht van mijn stageperiode als student Netwerk- en Systeembeheer — doelen, activiteiten en ervaringen.</p>
+      <div class="page-tag">Stagedocumentatie 2026</div>
+      <h1>Mijn <span>Stage</span></h1>
+      <p>Documentatie van mijn stageperiode als student Netwerk- en Systeembeheer — weekverslagen, uitgevoerde taken en opgedane kennis.</p>
     </div>
     <div class="divider"></div>
 
-    <!-- INFO CARDS -->
     <section>
       <div class="section-head">
         <span class="section-num">01</span>
@@ -133,8 +153,8 @@
       <div class="info-grid">
         <div class="info-card">
           <div class="info-card-label">Bedrijf</div>
-          <div class="info-card-value accent2">Nog te bevestigen</div>
-          <div class="info-card-sub">Op zoek naar een geschikte stageplek</div>
+          <div class="info-card-value accent2">Vertrouwelijk</div>
+          <div class="info-card-sub">IT-sector</div>
         </div>
         <div class="info-card">
           <div class="info-card-label">Periode</div>
@@ -148,91 +168,162 @@
         </div>
         <div class="info-card">
           <div class="info-card-label">Status</div>
-          <div class="info-card-value accent">● Actief zoekend</div>
-          <div class="info-card-sub">Beschikbaar voor contact</div>
+          <div class="info-card-value accent">● Lopend</div>
+          <div class="info-card-sub">Stage is gestart</div>
         </div>
       </div>
 
-      <!-- LEERDOELEN -->
       <div class="section-head">
         <span class="section-num">02</span>
-        <h2 class="section-title">Leerdoelen</h2>
+        <h2 class="section-title">Weekverslagen</h2>
         <div class="section-line"></div>
       </div>
-      <div class="goals-grid">
-        <div class="goal-card">
-          <div class="goal-icon">🌐</div>
-          <div>
-            <div class="goal-title">Netwerkbeheer in de praktijk</div>
-            <div class="goal-desc">Ervaring opdoen met het configureren en beheren van echte netwerkapparatuur (switches, routers, firewalls) in een bedrijfsomgeving.</div>
+
+      <div class="notice">
+        <strong>📝 Tip:</strong> Vul de weekverslagen aan met je eigen ervaringen. Pas de titels, taken en tags aan naarmate je stage vordert. Voeg extra weken toe door een nieuw blok te kopiëren.
+      </div>
+
+      <div class="weeks-layout">
+        <nav class="week-nav">
+          <div class="week-nav-title">Navigatie</div>
+          <a href="#week1" class="active"><span class="wn-dot"></span>Week 1</a>
+          <a href="#week2"><span class="wn-dot"></span>Week 2</a>
+          <a href="#week3"><span class="wn-dot"></span>Week 3</a>
+          <a href="#week4"><span class="wn-dot"></span>Week 4</a>
+        </nav>
+
+        <div class="weeks-content">
+
+          <div class="week-entry" id="week1">
+            <div class="week-meta">
+              <span class="week-num">W1</span>
+              <span class="week-dates">Datum: __ / __ / 2026</span>
+              <span class="week-badge badge-done">Afgerond</span>
+            </div>
+            <div class="week-title">Onboarding & Kennismaking</div>
+            <div class="week-body">
+              <p>Beschrijf hier wat je deed in week 1. Hoe was de kennismaking met het bedrijf, de collega's en de IT-omgeving?</p>
+              <p>Welke toegangen kreeg je? Welke tools en systemen gebruiken ze?</p>
+            </div>
+            <div class="tasks-list">
+              <div class="task-item"><div class="task-check done">✓</div><span>Kennismaking met het team en de werkomgeving</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Toegang gekregen tot systemen en netwerk</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Introductie in gebruikte tools en workflows</span></div>
+              <div class="task-item"><div class="task-check pending">→</div><span>Documentatie van bestaande infrastructuur lezen</span></div>
+            </div>
+            <div class="tag-list">
+              <span class="tag net">Onboarding</span>
+              <span class="tag">Kennismaking</span>
+            </div>
           </div>
-        </div>
-        <div class="goal-card">
-          <div class="goal-icon">🖥️</div>
-          <div>
-            <div class="goal-title">Serverbeheer & Virtualisatie</div>
-            <div class="goal-desc">Windows Server en Linux-systemen beheren, en virtuele omgevingen opzetten met VMware of Hyper-V.</div>
+
+          <div class="week-entry" id="week2">
+            <div class="week-meta">
+              <span class="week-num">W2</span>
+              <span class="week-dates">Datum: __ / __ / 2026</span>
+              <span class="week-badge badge-done">Afgerond</span>
+            </div>
+            <div class="week-title">Week 2 — vul titel in</div>
+            <div class="week-body">
+              <p>Beschrijf hier wat je deed in week 2. Welke taken heb je uitgevoerd? Wat was moeilijk of interessant?</p>
+            </div>
+            <div class="tasks-list">
+              <div class="task-item"><div class="task-check done">✓</div><span>Taak 1 — vul in</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Taak 2 — vul in</span></div>
+              <div class="task-item"><div class="task-check pending">→</div><span>Taak 3 — vul in</span></div>
+            </div>
+            <div class="tag-list">
+              <span class="tag net">Tag 1</span>
+              <span class="tag">Tag 2</span>
+            </div>
           </div>
-        </div>
-        <div class="goal-card">
-          <div class="goal-icon">🔐</div>
-          <div>
-            <div class="goal-title">Beveiliging & Monitoring</div>
-            <div class="goal-desc">Inzicht krijgen in beveiligingsprotocollen, firewallregels en netwerkmonitoring-tools zoals Nagios of Zabbix.</div>
+
+          <div class="week-entry" id="week3">
+            <div class="week-meta">
+              <span class="week-num">W3</span>
+              <span class="week-dates">Datum: __ / __ / 2026</span>
+              <span class="week-badge badge-wip">In progress</span>
+            </div>
+            <div class="week-title">Week 3 — vul titel in</div>
+            <div class="week-body">
+              <p>Beschrijf hier wat je deed in week 3.</p>
+            </div>
+            <div class="tasks-list">
+              <div class="task-item"><div class="task-check pending">→</div><span>Taak 1 — vul in</span></div>
+              <div class="task-item"><div class="task-check pending">→</div><span>Taak 2 — vul in</span></div>
+            </div>
+            <div class="tag-list"><span class="tag">Tag 1</span></div>
           </div>
-        </div>
-        <div class="goal-card">
-          <div class="goal-icon">🤝</div>
-          <div>
-            <div class="goal-title">Professionele werkervaring</div>
-            <div class="goal-desc">Leren werken in een IT-team, tickets behandelen via een helpdesk-systeem en communiceren met eindgebruikers.</div>
+
+          <div class="week-entry" id="week4">
+            <div class="week-meta">
+              <span class="week-num">W4</span>
+              <span class="week-dates">Datum: __ / __ / 2026</span>
+              <span class="week-badge badge-upcoming">Gepland</span>
+            </div>
+            <div class="week-title">Week 4 — vul titel in</div>
+            <div class="week-body">
+              <p>Nog niet gestart — vul aan wanneer week 4 begint.</p>
+            </div>
+            <div class="tasks-list">
+              <div class="task-item"><div class="task-check pending">→</div><span>Taak 1 — vul in</span></div>
+            </div>
+            <div class="tag-list"><span class="tag">Tag 1</span></div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- TIJDLIJN -->
+    <!-- OPGEDANE SKILLS -->
     <section>
       <div class="section-head">
         <span class="section-num">03</span>
-        <h2 class="section-title">Geplande activiteiten</h2>
+        <h2 class="section-title">Opgedane kennis & skills</h2>
         <div class="section-line"></div>
       </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-week">Week 1–2</div>
-          <div class="timeline-title">Onboarding & kennismaking</div>
-          <div class="timeline-desc">Kennismaken met de IT-infrastructuur, collega's en interne processen van het bedrijf. Toegang krijgen tot systemen en tools.</div>
-          <div class="tag-list"><span class="tag">Onboarding</span><span class="tag">Documentatie</span></div>
+      <div class="skills-gained">
+        <div class="skill-gained">
+          <div class="sg-icon">🌐</div>
+          <div>
+            <div class="sg-name">Netwerkconfiguratie</div>
+            <div class="sg-desc">Vul aan met wat je concreet hebt gedaan of geleerd rond netwerken tijdens de stage.</div>
+          </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-week">Week 3–5</div>
-          <div class="timeline-title">Netwerk- en serverbeheer</div>
-          <div class="timeline-desc">Actief deelnemen aan dagelijkse beheer­taken: netwerkconfiguratie, serverpatch­management en gebruikers­beheer via Active Directory.</div>
-          <div class="tag-list"><span class="tag">Cisco</span><span class="tag">Windows Server</span><span class="tag">Active Directory</span></div>
+        <div class="skill-gained">
+          <div class="sg-icon">🖥️</div>
+          <div>
+            <div class="sg-name">Serverbeheer</div>
+            <div class="sg-desc">Vul aan met ervaringen rond servers, OS-beheer of virtualisatie.</div>
+          </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-week">Week 6–8</div>
-          <div class="timeline-title">Virtualisatie & Cloud</div>
-          <div class="timeline-desc">Werken met VMware-omgevingen, virtuele machines deployen en beheren, en kennismaken met cloudoplossingen.</div>
-          <div class="tag-list"><span class="tag">VMware</span><span class="tag">Hyper-V</span><span class="tag">Azure</span></div>
+        <div class="skill-gained">
+          <div class="sg-icon">🔐</div>
+          <div>
+            <div class="sg-name">Beveiliging</div>
+            <div class="sg-desc">Vul aan met wat je hebt bijgeleerd rond security, firewalls of toegangsbeheer.</div>
+          </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-week">Week 9–11</div>
-          <div class="timeline-title">Stage-project</div>
-          <div class="timeline-desc">Een zelfstandig project uitwerken dat aansluit bij de noden van het bedrijf, bijv. een netwerksegmentatie of monitoring-dashboard.</div>
-          <div class="tag-list"><span class="tag">Project</span><span class="tag">Troubleshooting</span><span class="tag">Documentatie</span></div>
+        <div class="skill-gained">
+          <div class="sg-icon">🛠️</div>
+          <div>
+            <div class="sg-name">Troubleshooting</div>
+            <div class="sg-desc">Vul aan met concrete problemen die je hebt opgelost tijdens de stage.</div>
+          </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-week">Week 12–13</div>
-          <div class="timeline-title">Presentatie & afronding</div>
-          <div class="timeline-desc">Het stage-project presenteren aan de begeleiders, stageverslag afwerken en evaluatiegesprek voeren.</div>
-          <div class="tag-list"><span class="tag">Presentatie</span><span class="tag">Rapport</span><span class="tag">Evaluatie</span></div>
+        <div class="skill-gained">
+          <div class="sg-icon">📋</div>
+          <div>
+            <div class="sg-name">Documentatie</div>
+            <div class="sg-desc">Vul aan met hoe je technische documentatie hebt opgesteld of beheerd.</div>
+          </div>
+        </div>
+        <div class="skill-gained">
+          <div class="sg-icon">🤝</div>
+          <div>
+            <div class="sg-name">Samenwerking</div>
+            <div class="sg-desc">Vul aan met ervaringen rond werken in een IT-team en communicatie met collega's.</div>
+          </div>
         </div>
       </div>
     </section>
