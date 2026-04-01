@@ -127,7 +127,7 @@
     <div class="wrap nav-inner">
       <a href="index.html" class="nav-logo">AH<span>.</span>MER</a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">Over mij</a></li>
         <li><a href="internship.html" class="active">Stage</a></li>
         <li><a href="projects.html">Projecten</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -301,7 +301,7 @@ Ik heb nog veel te leren, vooral in het sneller herkennen van configuratiefouten
             <div class="week-meta">
               <span class="week-num">W3</span>
               <span class="week-dates">Datum: 23 / 02 / 2026</span>
-              <span class="week-badge badge-wip">Afgerond</span>
+              <span class="week-badge badge-done">Afgerond</span>
             </div>
             <div class="week-title">Site-to-Site VPN</div>
             <div class="week-body">
@@ -449,7 +449,7 @@ stap de problemen isoleren en oplossen.<br>
             <div class="week-meta">
               <span class="week-num">W4</span>
               <span class="week-dates">Datum: 02 / 03 / 2026</span>
-              <span class="week-badge badge-upcoming">Afgerond</span>
+              <span class="week-badge badge-done">Afgerond</span>
             </div>
             <div class="week-title">Afwerken lab en Tickets</div>
             <div class="week-body">
@@ -489,17 +489,13 @@ Ik heb nog veel te leren, vooral in troubleshooting en het sneller begrijpen van
               <span class="tag net">Omnitracker</span>
               <span class="tag">Tickets</span>
             </div>
+          </div>
 
-        </div>
-      </div>
-    </section>
-
-    
           <div class="week-entry" id="week5">
             <div class="week-meta">
               <span class="week-num">W5</span>
               <span class="week-dates">Datum: 09 / 03 / 2026</span>
-              <span class="week-badge badge-upcoming">Afgerond</span>
+              <span class="week-badge badge-done">Afgerond</span>
             </div>
             <div class="week-title">Health checks en FMC</div>
             <div class="week-body">
@@ -552,81 +548,120 @@ Ik heb nog veel te leren, vooral in het sneller begrijpen van configuraties en z
               <span class="tag net">Omnitracker</span>
               <span class="tag">Tickets</span>
             </div>
+          </div>
 
-        </div>
-      </div>
-    </section>
-
-            <div class="week-entry" id="week6">
+          <div class="week-entry" id="week6">
             <div class="week-meta">
               <span class="week-num">W6</span>
-              <span class="week-dates">Datum: 02 / 03 / 2026</span>
-              <span class="week-badge badge-upcoming">Afgerond</span>
+              <span class="week-dates">Datum: 16 / 03 / 2026</span>
+              <span class="week-badge badge-done">Afgerond</span>
             </div>
-            <div class="week-title">Afwerken lab en Tickets</div>
+            <div class="week-title">FMC Upgrade & Certificaten</div>
             <div class="week-body">
-              <p> tekst </p>
+              <p>FMC upgrade en change procedure:<br>
+Op maandag heb ik een update uitgevoerd op de FMC. Voor een upgrade moet eerst een change document gemaakt worden waarin beschreven staat wat er aangepast zal worden. Dit document moet goedgekeurd worden voordat de wijziging mag uitgevoerd worden. Na goedkeuring heb ik de upgrade uitgevoerd.</p>
+
+<p>Certificaat vervangen op FMC:<br>
+Ik heb ook een certificaat moeten vervangen op de FMC. Het certificaat hadden we gekregen van de klant, maar de passphrase ontbrak. Hierdoor kon het certificaat niet geïnstalleerd worden. Met behulp van <strong>OpenSSL</strong> heb ik een nieuwe passphrase aangemaakt zodat het certificaat gebruikt kon worden. Daarna heb ik zelf een mail gestuurd naar de klant met uitleg. Dit ticket heb ik bijna volledig zelfstandig mogen uitvoeren.</p>
+
+<p>Ticket: probleem met AP's en printen via WiFi:<br>
+Ik heb gewerkt aan een ticket waarbij na een nieuwe installatie van access points gebruikers niet konden printen via WiFi. Alle AP's werden beheerd via <strong>Meraki</strong>. Ik heb alle access points nagekeken maar kon geen fout vinden. Daarna hebben we beslist om extra informatie te vragen aan de klant om verder te kunnen troubleshooten.</p>
+
+<p>Ticket: probleem met Cisco VPN:<br>
+Er was ook een probleem met Cisco VPN waarbij sommige klanten geen verbinding meer konden maken met nieuwere versies van de VPN-client. Ik heb meegeholpen met testen om te controleren waar het probleem kon zitten.</p>
+
+<p>Zelfreflectie:<br>
+Deze week heb ik veel geleerd over werken in een echte productieomgeving. Ik heb bijgeleerd hoe een change procedure werkt, hoe een FMC upgrade uitgevoerd wordt, werken met certificaten en OpenSSL, troubleshooting bij WiFi en VPN problemen, en communicatie met klanten via tickets en mail. Ik merk dat ik zelfstandiger begin te werken en meer taken zelf mag uitvoeren.</p>
             </div>
             <div class="tasks-list">
-              <div class="task-item"><div class="task-check done">→</div><span>Afwerken LABO</span></div>
-              <div class="task-item"><div class="task-check done">→</div><span>Toubleshoot ticket</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>FMC upgrade uitgevoerd via change procedure</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Certificaat vervangen met OpenSSL</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Meraki AP's troubleshooten</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Cisco VPN compatibiliteitsprobleem testen</span></div>
             </div>
- <div class="tag-list">
-              <span class="tag net">LABO</span>
-              <span class="tag net">Omnitracker</span>
-              <span class="tag">Tickets</span>
+            <div class="tag-list">
+              <span class="tag net">FMC</span>
+              <span class="tag net">Certificaten</span>
+              <span class="tag">OpenSSL</span>
+              <span class="tag">Meraki</span>
             </div>
+          </div>
 
-        </div>
-      </div>
-    </section>
-
-            <div class="week-entry" id="week7">
+          <div class="week-entry" id="week7">
             <div class="week-meta">
               <span class="week-num">W7</span>
-              <span class="week-dates">Datum: 02 / 03 / 2026</span>
-              <span class="week-badge badge-upcoming">Afgerond</span>
+              <span class="week-dates">Datum: 23 / 03 / 2026</span>
+              <span class="week-badge badge-done">Afgerond</span>
             </div>
-            <div class="week-title">Afwerken lab en Tickets</div>
+            <div class="week-title">Pentest Ticket, On-site & Firewall Upgrade</div>
             <div class="week-body">
-              <p> tekst </p>
+              <p>Ticket: NTP misconfiguratie oplossen op access switches:<br>
+Ik heb zelfstandig aan een ticket gewerkt dat afkomstig was van een <strong>pentest</strong>. Tijdens de pentest was een finding vastgesteld in verband met een misconfiguratie van NTP op meerdere access switches. De switches antwoordden op een mode 6 query (remote / unauthenticated), wat misbruikt kan worden voor een DoS-aanval. Om dit op te lossen heb ik een <strong>standard access list</strong> gemaakt waarin alleen de NTP-server toegelaten wordt, en heb ik de mode 6 queries uitgeschakeld. Dit ticket heb ik grotendeels zelfstandig mogen uitvoeren.</p>
+
+<p>Portfolio en change document:<br>
+Op dinsdag was er minder werk, daarom heb ik verder gewerkt aan mijn eindportfolio. Daarnaast heb ik meegekeken hoe een change document wordt opgesteld voor een upgrade van een <strong>Cisco 9K switch</strong>.</p>
+
+<p>On-site interventie firewall (Brussel):<br>
+Op donderdag ben ik mee naar Brussel gegaan om een firewall te vervangen die defect was. Ter plaatse bleek dat Cisco een fout toestel had geleverd. Hierdoor konden we de vervanging niet uitvoeren en moest er een <strong>TAC-case</strong> geopend worden bij Cisco.</p>
+
+<p>Firewall upgrade met KVM en troubleshooting:<br>
+Later in de week heb ik meegewerkt aan een firewall upgrade. Voor de upgrade moest eerst een snapshot genomen worden via <strong>KVM</strong> als backup. Tijdens de upgrade liep het systeem vast. Na troubleshooting hebben we ontdekt dat er al oude snapshots (van ongeveer 2 jaar geleden) aanwezig waren, waardoor er geen opslagruimte meer was. We hebben een rollback uitgevoerd, de oude snapshots verwijderd, en de upgrade opnieuw uitgevoerd. Na de upgrade hebben we de security policies nagekeken en gepusht.</p>
+
+<p>Zelfreflectie:<br>
+Deze week heb ik opnieuw veel praktische ervaring opgedaan. Ik heb bijgeleerd hoe change procedures werken in de praktijk, hoe een interventie op locatie verloopt, hoe belangrijk troubleshooting is bij upgrades, en het belang van storage en snapshots. Mijn troubleshooting skills verbeteren, maar ik moet nog sneller leren analyseren waar een probleem zit.</p>
             </div>
             <div class="tasks-list">
-              <div class="task-item"><div class="task-check done">→</div><span>Afwerken LABO</span></div>
-              <div class="task-item"><div class="task-check done">→</div><span>Toubleshoot ticket</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>NTP pentest finding opgelost op access switches</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Change document Cisco 9K switch gevolgd</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>On-site interventie firewall Brussel</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Firewall upgrade via KVM met rollback</span></div>
             </div>
- <div class="tag-list">
-              <span class="tag net">LABO</span>
-              <span class="tag net">Omnitracker</span>
-              <span class="tag">Tickets</span>
+            <div class="tag-list">
+              <span class="tag net">Pentest</span>
+              <span class="tag net">NTP</span>
+              <span class="tag">On-site</span>
+              <span class="tag">KVM</span>
+              <span class="tag">TAC</span>
             </div>
+          </div>
 
-        </div>
-      </div>
-    </section>
-
-            <div class="week-entry" id="week8">
+          <div class="week-entry" id="week8">
             <div class="week-meta">
               <span class="week-num">W8</span>
-              <span class="week-dates">Datum: 02 / 03 / 2026</span>
-              <span class="week-badge badge-upcoming">Afgerond</span>
+              <span class="week-dates">Datum: 30 / 03 / 2026</span>
+              <span class="week-badge badge-done">Afgerond</span>
             </div>
-            <div class="week-title">Afwerken lab en Tickets</div>
+            <div class="week-title">A10 Certificaten, CVE-analyse & VPN Troubleshooting</div>
             <div class="week-body">
-              <p> tekst </p>
+              <p>A10 Load Balancer — certificaat vervangen:<br>
+Ik heb een <strong>SSL-certificaat vervangen op een A10 load balancer</strong>. Dit omvatte het importeren van het nieuwe .crt en .key bestand via SSL Management, het uploaden van de CA chain als CA Certificate, en het aanpassen van de SSL Client Templates (o.a. SSL_CL_SNI_RVPXY_1, SSL_Client_Cronos). Ik heb ook de CLI-commando's toegepast om de configuratie door te voeren en op te slaan met write memory.</p>
+
+<p>CVE-analyse voor klant (FMC/FTD):<br>
+Ik heb voor een klant onderzocht welke impact <strong>CVE-2026-20127</strong> heeft op hun omgeving. Dit is een kritieke kwetsbaarheid (CVSS 10.0) in Cisco Catalyst SD-WAN Controller die een authentication bypass mogelijk maakt. Ik heb de FMC-versie (7.4.2.3) en FTD-versies gecontroleerd om vast te stellen of de klant kwetsbaar was en heb hierover gerapporteerd.</p>
+
+<p>VPN/WLC troubleshooting — CAPWAP over tunnel:<br>
+Ik heb een complex <strong>VPN-probleem onderzocht</strong> waarbij een WLC geen verbinding kon maken over de site-to-site tunnel. Het probleem zat in een <strong>IPsec proxy-ID mismatch</strong> op de PA-460: tunnel.1 liet alleen 192.168.30.0/24 als bron toe, maar verkeer van de AP (192.168.40.0/24) richting de WLC (192.168.10.0/24) werd geweigerd. Ik heb de proxy-ID configuratie aangepast zodat ook het WiFi-VLAN verkeer correct door de tunnel kon.</p>
+
+<p>Zelfreflectie:<br>
+Deze week was gevarieerd en technisch uitdagend. Ik heb geleerd hoe SSL-certificaten werken op load balancers, hoe je CVE-analyses uitvoert voor klanten, en hoe proxy-ID mismatches VPN-tunnels kunnen breken. Ik merk dat ik steeds beter word in het zelfstandig analyseren en oplossen van complexe netwerkproblemen.</p>
             </div>
             <div class="tasks-list">
-              <div class="task-item"><div class="task-check done">→</div><span>Afwerken LABO</span></div>
-              <div class="task-item"><div class="task-check done">→</div><span>Toubleshoot ticket</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>SSL-certificaat vervangen op A10 load balancer</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>CVE-2026-20127 impact analyse voor klant</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>VPN/WLC CAPWAP proxy-ID mismatch opgelost</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Firewall configuratie documentatie bijgewerkt</span></div>
             </div>
- <div class="tag-list">
-              <span class="tag net">LABO</span>
-              <span class="tag net">Omnitracker</span>
-              <span class="tag">Tickets</span>
+            <div class="tag-list">
+              <span class="tag net">A10</span>
+              <span class="tag net">SSL</span>
+              <span class="tag">CVE</span>
+              <span class="tag">VPN</span>
+              <span class="tag">CAPWAP</span>
             </div>
+          </div>
 
-        </div>
-      </div>
+        </div> <!-- /weeks-content -->
+      </div> <!-- /weeks-layout -->
     </section>
 
     <!-- OPGEDANE SKILLS -->
@@ -641,42 +676,42 @@ Ik heb nog veel te leren, vooral in het sneller begrijpen van configuraties en z
           <div class="sg-icon">🌐</div>
           <div>
             <div class="sg-name">Netwerkconfiguratie</div>
-            <div class="sg-desc">Vul aan met wat je concreet hebt gedaan of geleerd rond netwerken tijdens de stage.</div>
+            <div class="sg-desc">VLAN-segmentatie, Site-to-Site VPN (IPsec IKEv1), OSPF routing, CAPWAP over tunnel, redundantie-opstellingen en access lists op Cisco ASA, Palo Alto en switches.</div>
           </div>
         </div>
         <div class="skill-gained">
           <div class="sg-icon">🖥️</div>
           <div>
             <div class="sg-name">Serverbeheer</div>
-            <div class="sg-desc">Vul aan met ervaringen rond servers, OS-beheer of virtualisatie.</div>
+            <div class="sg-desc">NXOS switch upgrades via TFTP, Nexus health checks, FMC upgrades met backup procedures, KVM snapshots en rollbacks bij firewall upgrades.</div>
           </div>
         </div>
         <div class="skill-gained">
           <div class="sg-icon">🔐</div>
           <div>
             <div class="sg-name">Beveiliging</div>
-            <div class="sg-desc">Vul aan met wat je hebt bijgeleerd rond security, firewalls of toegangsbeheer.</div>
+            <div class="sg-desc">SSL-certificaten vervangen (FMC, A10), pentest findings oplossen (NTP mode 6), CVE-analyses uitvoeren, crypto maps en NAT exemption configureren voor VPN.</div>
           </div>
         </div>
         <div class="skill-gained">
           <div class="sg-icon">🛠️</div>
           <div>
             <div class="sg-name">Troubleshooting</div>
-            <div class="sg-desc">Vul aan met concrete problemen die je hebt opgelost tijdens de stage.</div>
+            <div class="sg-desc">OSPF adjacency problemen (INIT/EXSTART), IPsec proxy-ID mismatches, asymmetrische routing, AP failover issues, storage-problemen bij upgrades en VPN-connectiviteit debuggen.</div>
           </div>
         </div>
         <div class="skill-gained">
           <div class="sg-icon">📋</div>
           <div>
             <div class="sg-name">Documentatie</div>
-            <div class="sg-desc">Vul aan met hoe je technische documentatie hebt opgesteld of beheerd.</div>
+            <div class="sg-desc">Health check rapporten voor Nexus switches, change documents voor upgrades, ticket documentatie in Omnitracker, firewall configuratie-documentatie en CVE-rapportages.</div>
           </div>
         </div>
         <div class="skill-gained">
           <div class="sg-icon">🤝</div>
           <div>
             <div class="sg-name">Samenwerking</div>
-            <div class="sg-desc">Vul aan met ervaringen rond werken in een IT-team en communicatie met collega's.</div>
+            <div class="sg-desc">Werken in een NOC-team, on-site interventies bij klanten, zelfstandig communiceren via mail met klanten, TAC-cases openen bij Cisco en meevolgen aan teamvergaderingen.</div>
           </div>
         </div>
       </div>
