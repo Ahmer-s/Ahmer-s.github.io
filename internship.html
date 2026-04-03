@@ -540,13 +540,18 @@ Mijn beeld van de job blijft evolueren. Ik merk dat nauwkeurig werken en goed do
 Ik heb nog veel te leren, vooral in het sneller begrijpen van configuraties en zelfstandiger werken. </p>
             </div>
             <div class="tasks-list">
-              <div class="task-item"><div class="task-check done">→</div><span>Afwerken LABO</span></div>
-              <div class="task-item"><div class="task-check done">→</div><span>Toubleshoot ticket</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Health check document Nexus switches</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Cisco ESA logging aanpassing (3u → 25u)</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>FMC-upgrade backup policies</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>VPN login gegevens aangepast</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>RADIUS/ISE documentatie onderzocht</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Monitoring tickets gecontroleerd</span></div>
             </div>
-             <div class="tag-list">
-              <span class="tag net">LABO</span>
-              <span class="tag net">Omnitracker</span>
-              <span class="tag">Tickets</span>
+            <div class="tag-list">
+              <span class="tag net">Nexus</span>
+              <span class="tag net">FMC</span>
+              <span class="tag">Health Check</span>
+              <span class="tag">RADIUS</span>
             </div>
           </div>
 
@@ -631,32 +636,40 @@ Deze week heb ik opnieuw veel praktische ervaring opgedaan. Ik heb bijgeleerd ho
               <span class="week-dates">Datum: 30 / 03 / 2026</span>
               <span class="week-badge badge-done">Afgerond</span>
             </div>
-            <div class="week-title">A10 Certificaten, CVE-analyse & VPN Troubleshooting</div>
+            <div class="week-title">A10 Certificaat, VPN Migratie & On-site Firewall</div>
             <div class="week-body">
-              <p>A10 Load Balancer — certificaat vervangen:<br>
-Ik heb een <strong>SSL-certificaat vervangen op een A10 load balancer</strong>. Dit omvatte het importeren van het nieuwe .crt en .key bestand via SSL Management, het uploaden van de CA chain als CA Certificate, en het aanpassen van de SSL Client Templates (o.a. SSL_CL_SNI_RVPXY_1, SSL_Client_Cronos). Ik heb ook de CLI-commando's toegepast om de configuratie door te voeren en op te slaan met write memory.</p>
+              <p>A10 loadbalancer — certificaat vervangen:<br>
+Op maandag heb ik een certificaat vervangen op een <strong>A10 loadbalancer</strong>. Ik moest nieuwe certificaten uploaden en ook het chain certificate correct toevoegen zodat alles geldig werkte.</p>
 
-<p>CVE-analyse voor klant (FMC/FTD):<br>
-Ik heb voor een klant onderzocht welke impact <strong>CVE-2026-20127</strong> heeft op hun omgeving. Dit is een kritieke kwetsbaarheid (CVSS 10.0) in Cisco Catalyst SD-WAN Controller die een authentication bypass mogelijk maakt. Ik heb de FMC-versie (7.4.2.3) en FTD-versies gecontroleerd om vast te stellen of de klant kwetsbaar was en heb hierover gerapporteerd.</p>
+<p>Migratie SSL VPN naar IPsec VPN + documentatie:<br>
+Op dinsdag heb ik gewerkt aan een <strong>migratie van SSL VPN naar IPsec VPN</strong>. Daarnaast heb ik een handleiding gemaakt waarin stap voor stap wordt uitgelegd hoe je een SSL VPN omzet naar een IPsec remote access VPN.</p>
 
-<p>VPN/WLC troubleshooting — CAPWAP over tunnel:<br>
-Ik heb een complex <strong>VPN-probleem onderzocht</strong> waarbij een WLC geen verbinding kon maken over de site-to-site tunnel. Het probleem zat in een <strong>IPsec proxy-ID mismatch</strong> op de PA-460: tunnel.1 liet alleen 192.168.30.0/24 als bron toe, maar verkeer van de AP (192.168.40.0/24) richting de WLC (192.168.10.0/24) werd geweigerd. Ik heb de proxy-ID configuratie aangepast zodat ook het WiFi-VLAN verkeer correct door de tunnel kon.</p>
+<p>Troubleshooting packet loss op switch:<br>
+Doorheen de dag heb ik een switch getest waar problemen waren met <strong>packet loss</strong>. Ik heb meerdere keren controles uitgevoerd om te zien of het probleem zich nog voordeed.</p>
+
+<p>On-site firewall vervanging (Brussel):<br>
+Op donderdag ben ik opnieuw naar Brussel gegaan om een <strong>FTD firewall</strong> te vervangen. Ik had op voorhand screenshots genomen van de oude firewall (configuratie en IP-adressen). Daarna hebben we de oude firewall verwijderd, de nieuwe firewall geplaatst, de juiste softwareversie geïnstalleerd en de firewall toegevoegd aan de <strong>FMC</strong>. Alles verliep vlot en zonder problemen.</p>
+
+<p>Documentatie nieuwe firewall + Meraki ticket:<br>
+Op vrijdag heb ik documentatie gemaakt over hoe je een nieuwe firewall installeert. Daarna heb ik meegekeken naar tickets. Bij één ticket moest een nieuwe <strong>Meraki firewall</strong> opgezet worden, maar de IPsec tunnel kwam niet online. Na analyse leek het probleem bij de <strong>ISP</strong> te liggen, waardoor er contact opgenomen moest worden met de provider.</p>
 
 <p>Zelfreflectie:<br>
-Deze week was gevarieerd en technisch uitdagend. Ik heb geleerd hoe SSL-certificaten werken op load balancers, hoe je CVE-analyses uitvoert voor klanten, en hoe proxy-ID mismatches VPN-tunnels kunnen breken. Ik merk dat ik steeds beter word in het zelfstandig analyseren en oplossen van complexe netwerkproblemen.</p>
+Deze week heb ik opnieuw veel bijgeleerd. Ik heb geleerd werken met certificaten en loadbalancers, het verschil tussen SSL VPN en IPsec VPN, het belang van documentatie, troubleshooting van netwerkproblemen en voorbereiding bij on-site interventies. Ik merk dat ik zelfstandiger werk en meer taken zelf mag uitvoeren. Mijn vertrouwen groeit, maar ik moet nog sneller problemen analyseren en oplossingen vinden.</p>
             </div>
             <div class="tasks-list">
-              <div class="task-item"><div class="task-check done">✓</div><span>SSL-certificaat vervangen op A10 load balancer</span></div>
-              <div class="task-item"><div class="task-check done">✓</div><span>CVE-2026-20127 impact analyse voor klant</span></div>
-              <div class="task-item"><div class="task-check done">✓</div><span>VPN/WLC CAPWAP proxy-ID mismatch opgelost</span></div>
-              <div class="task-item"><div class="task-check done">✓</div><span>Firewall configuratie documentatie bijgewerkt</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Certificaat vervangen op A10 loadbalancer</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>SSL VPN naar IPsec VPN migratie + handleiding</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Packet loss troubleshooting op switch</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>FTD firewall vervangen on-site (Brussel)</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Documentatie nieuwe firewall installatie</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Meraki IPsec tunnel probleem geanalyseerd</span></div>
             </div>
             <div class="tag-list">
               <span class="tag net">A10</span>
-              <span class="tag net">SSL</span>
-              <span class="tag">CVE</span>
-              <span class="tag">VPN</span>
-              <span class="tag">CAPWAP</span>
+              <span class="tag net">SSL/IPsec VPN</span>
+              <span class="tag">FTD</span>
+              <span class="tag">On-site</span>
+              <span class="tag">Meraki</span>
             </div>
           </div>
 
