@@ -5,43 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stage — Ahmer Salim</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #080c10; --border: #1e2530;
-      --accent: #00e5ff; --accent2: #7b61ff;
+      --accent: #ff8c00; --accent2: #ff5722;
       --text: #e8edf2; --muted: #6b7a8d; --card: #111820;
     }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; font-size: 14px; line-height: 1.7; overflow-x: hidden; }
     body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 999; opacity: 0.5; }
     body::after { content: ''; position: fixed; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 48px 48px; opacity: 0.35; pointer-events: none; z-index: 0; }
-    .glow-orb { position: fixed; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(123,97,255,0.07) 0%, transparent 70%); top: -150px; left: -100px; pointer-events: none; z-index: 1; }
-    .glow-orb2 { position: fixed; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(0,229,255,0.05) 0%, transparent 70%); bottom: 100px; right: -100px; pointer-events: none; z-index: 1; }
+    .glow-orb { position: fixed; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(255,87,34,0.07) 0%, transparent 70%); top: -150px; left: -100px; pointer-events: none; z-index: 1; }
+    .glow-orb2 { position: fixed; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(255,140,0,0.05) 0%, transparent 70%); bottom: 100px; right: -100px; pointer-events: none; z-index: 1; }
 
     .wrap { position: relative; z-index: 10; max-width: 1100px; margin: 0 auto; padding: 0 32px; }
 
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; border-bottom: 1px solid var(--border); background: rgba(8,12,16,0.85); backdrop-filter: blur(16px); }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
-    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+    .nav-logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 18px; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
     .nav-logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--accent); }
-    .nav-badge { background: rgba(0,229,255,0.1); border: 1px solid rgba(0,229,255,0.3); color: var(--accent); font-size: 11px; padding: 4px 12px; border-radius: 20px; }
+    .nav-badge { background: rgba(255,140,0,0.1); border: 1px solid rgba(255,140,0,0.3); color: var(--accent); font-size: 11px; padding: 4px 12px; border-radius: 20px; }
 
     .page-hero { padding: 140px 0 60px; opacity: 0; animation: fadeUp 0.7s 0.2s forwards; }
     .page-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--accent2); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
     .page-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent2); }
-    .page-hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(36px, 5vw, 64px); font-weight: 800; letter-spacing: -2px; margin-bottom: 16px; }
+    .page-hero h1 { font-family: 'Outfit', sans-serif; font-size: clamp(36px, 5vw, 64px); font-weight: 800; letter-spacing: -2px; margin-bottom: 16px; }
     .page-hero h1 span { background: linear-gradient(135deg, var(--accent2), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .page-hero p { color: var(--muted); max-width: 600px; line-height: 1.9; }
     .divider { height: 1px; background: var(--border); margin: 48px 0; }
 
     .section-head { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
     .section-num { font-size: 11px; color: var(--accent); letter-spacing: 0.1em; }
-    .section-title { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+    .section-title { font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
     .section-line { flex: 1; height: 1px; background: var(--border); }
 
     .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-bottom: 64px; }
@@ -49,13 +49,13 @@
     .info-card:nth-child(1) { animation-delay: 0.3s; } .info-card:nth-child(2) { animation-delay: 0.4s; }
     .info-card:nth-child(3) { animation-delay: 0.5s; } .info-card:nth-child(4) { animation-delay: 0.6s; }
     .info-card-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
-    .info-card-value { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; }
+    .info-card-value { font-family: 'Outfit', sans-serif; font-size: 17px; font-weight: 700; }
     .info-card-value.accent { color: var(--accent); }
     .info-card-value.accent2 { color: var(--accent2); }
     .info-card-sub { font-size: 11px; color: var(--muted); margin-top: 5px; }
 
     /* NOTICE */
-    .notice { background: rgba(123,97,255,0.06); border: 1px dashed rgba(123,97,255,0.3); border-radius: 8px; padding: 14px 18px; font-size: 12px; color: var(--accent2); margin-bottom: 32px; }
+    .notice { background: rgba(255,87,34,0.06); border: 1px dashed rgba(255,87,34,0.3); border-radius: 8px; padding: 14px 18px; font-size: 12px; color: var(--accent2); margin-bottom: 32px; }
     .notice strong { color: var(--text); }
 
     /* WEEKS LAYOUT */
@@ -74,14 +74,14 @@
     .week-entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
     .week-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
-    .week-num { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; color: var(--accent); letter-spacing: -1px; }
+    .week-num { font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 800; color: var(--accent); letter-spacing: -1px; }
     .week-dates { font-size: 11px; color: var(--muted); }
     .week-badge { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; }
-    .badge-done { background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.2); color: var(--accent); }
-    .badge-wip  { background: rgba(123,97,255,0.08); border: 1px solid rgba(123,97,255,0.2); color: var(--accent2); }
+    .badge-done { background: rgba(255,140,0,0.08); border: 1px solid rgba(255,140,0,0.2); color: var(--accent); }
+    .badge-wip  { background: rgba(255,87,34,0.08); border: 1px solid rgba(255,87,34,0.2); color: var(--accent2); }
     .badge-upcoming { background: rgba(107,122,141,0.08); border: 1px solid rgba(107,122,141,0.2); color: var(--muted); }
 
-    .week-title { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; }
+    .week-title { font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; }
     .week-body { color: var(--muted); font-size: 13px; line-height: 1.9; margin-bottom: 20px; }
     .week-body p { margin-bottom: 10px; } .week-body p:last-child { margin-bottom: 0; }
     .week-body strong { color: var(--text); font-weight: 500; }
@@ -89,12 +89,12 @@
     .tasks-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
     .task-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--muted); }
     .task-check { width: 16px; height: 16px; border-radius: 3px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; font-size: 10px; }
-    .task-check.done { background: rgba(0,229,255,0.1); border-color: var(--accent); color: var(--accent); }
-    .task-check.pending { background: rgba(123,97,255,0.1); border-color: var(--accent2); color: var(--accent2); }
+    .task-check.done { background: rgba(255,140,0,0.1); border-color: var(--accent); color: var(--accent); }
+    .task-check.pending { background: rgba(255,87,34,0.1); border-color: var(--accent2); color: var(--accent2); }
 
     .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag { background: rgba(123,97,255,0.08); border: 1px solid rgba(123,97,255,0.2); color: var(--accent2); font-size: 11px; padding: 3px 10px; border-radius: 20px; }
-    .tag.net { background: rgba(0,229,255,0.08); border-color: rgba(0,229,255,0.2); color: var(--accent); }
+    .tag { background: rgba(255,87,34,0.08); border: 1px solid rgba(255,87,34,0.2); color: var(--accent2); font-size: 11px; padding: 3px 10px; border-radius: 20px; }
+    .tag.net { background: rgba(255,140,0,0.08); border-color: rgba(255,140,0,0.2); color: var(--accent); }
 
     /* SKILLS GAINED */
     .skills-gained { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
@@ -104,7 +104,7 @@
     .skill-gained:nth-child(5){animation-delay:0.6s} .skill-gained:nth-child(6){animation-delay:0.7s}
     .skill-gained:hover { border-color: var(--accent); }
     .sg-icon { font-size: 20px; flex-shrink: 0; }
-    .sg-name { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .sg-name { font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 4px; }
     .sg-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
 
     section { padding: 64px 0; }
@@ -648,13 +648,32 @@ Op dinsdag heb ik gewerkt aan een <strong>migratie van SSL VPN naar IPsec VPN</s
 Doorheen de dag heb ik een switch getest waar problemen waren met <strong>packet loss</strong>. Ik heb meerdere keren controles uitgevoerd om te zien of het probleem zich nog voordeed.</p>
 
 <p>On-site firewall vervanging (Brussel):<br>
-Op donderdag ben ik opnieuw naar Brussel gegaan om een <strong>FTD firewall</strong> te vervangen. Ik had op voorhand screenshots genomen van de oude firewall (configuratie en IP-adressen). Daarna hebben we de oude firewall verwijderd, de nieuwe firewall geplaatst, de juiste softwareversie geïnstalleerd en de firewall toegevoegd aan de <strong>FMC</strong>. Alles verliep vlot en zonder problemen.</p>
+Op donderdag ben ik opnieuw naar Brussel gegaan om een <strong>FTD firewall</strong> te vervangen. Ik had op voorhand screenshots genomen van de oude firewall (configuratie en IP-adressen). Daarna hebben we:<br>
+- De oude firewall verwijderd<br>
+- De nieuwe firewall geplaatst<br>
+- De juiste softwareversie geïnstalleerd<br>
+- De firewall toegevoegd aan de <strong>FMC</strong><br>
+Alles verliep vlot en zonder problemen.</p>
 
 <p>Documentatie nieuwe firewall + Meraki ticket:<br>
-Op vrijdag heb ik documentatie gemaakt over hoe je een nieuwe firewall installeert. Daarna heb ik meegekeken naar tickets. Bij één ticket moest een nieuwe <strong>Meraki firewall</strong> opgezet worden, maar de IPsec tunnel kwam niet online. Na analyse leek het probleem bij de <strong>ISP</strong> te liggen, waardoor er contact opgenomen moest worden met de provider.</p>
+Op vrijdag heb ik documentatie gemaakt over hoe je een nieuwe firewall installeert. Ik heb alle stappen duidelijk uitgeschreven. Daarna heb ik meegekeken naar tickets. Bij één ticket moest een nieuwe <strong>Meraki firewall</strong> opgezet worden, maar de IPsec tunnel kwam niet online. Na analyse leek het probleem bij de <strong>ISP</strong> te liggen, waardoor er contact opgenomen moest worden met de provider.</p>
+
+<p>Verloop:<br>
+Het vervangen van het certificaat op de loadbalancer verliep vlot. Ik begin beter te begrijpen hoe certificaten werken en waarom chain certificates belangrijk zijn.<br>
+De migratie van SSL naar IPsec VPN was interessant. Het maken van documentatie was ook leerrijk omdat ik alles duidelijk moest uitleggen.<br>
+Het testen van packet loss was eerder repetitief, maar wel nuttig om te zien hoe monitoring gebeurt.<br>
+De interventie in Brussel verliep zeer goed. Dankzij de voorbereiding (screenshots) konden we snel werken. Dit heeft mij geleerd hoe belangrijk voorbereiding is.<br>
+Het Meraki ticket was moeilijker omdat het probleem extern lag (ISP). Ik heb geleerd dat niet elk probleem binnen het netwerk zelf zit.</p>
 
 <p>Zelfreflectie:<br>
-Deze week heb ik opnieuw veel bijgeleerd. Ik heb geleerd werken met certificaten en loadbalancers, het verschil tussen SSL VPN en IPsec VPN, het belang van documentatie, troubleshooting van netwerkproblemen en voorbereiding bij on-site interventies. Ik merk dat ik zelfstandiger werk en meer taken zelf mag uitvoeren. Mijn vertrouwen groeit, maar ik moet nog sneller problemen analyseren en oplossingen vinden.</p>
+Deze week heb ik opnieuw veel bijgeleerd, vooral in praktische situaties.<br>
+Ik heb geleerd:<br>
+- Werken met certificaten en loadbalancers<br>
+- Verschil tussen SSL VPN en IPsec VPN<br>
+- Belang van documentatie<br>
+- Troubleshooting van netwerkproblemen<br>
+- Voorbereiding bij on-site interventies<br>
+Ik merk dat ik zelfstandiger werk en meer taken zelf mag uitvoeren. Mijn vertrouwen groeit, maar ik moet nog sneller problemen analyseren en oplossingen vinden. Mijn beeld van de job is duidelijk geworden: het bestaat uit een combinatie van configureren, troubleshooten, documenteren en communiceren.</p>
             </div>
             <div class="tasks-list">
               <div class="task-item"><div class="task-check done">✓</div><span>Certificaat vervangen op A10 loadbalancer</span></div>
@@ -662,7 +681,7 @@ Deze week heb ik opnieuw veel bijgeleerd. Ik heb geleerd werken met certificaten
               <div class="task-item"><div class="task-check done">✓</div><span>Packet loss troubleshooting op switch</span></div>
               <div class="task-item"><div class="task-check done">✓</div><span>FTD firewall vervangen on-site (Brussel)</span></div>
               <div class="task-item"><div class="task-check done">✓</div><span>Documentatie nieuwe firewall installatie</span></div>
-              <div class="task-item"><div class="task-check done">✓</div><span>Meraki IPsec tunnel probleem geanalyseerd</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Meraki IPsec tunnel probleem geanalyseerd (ISP)</span></div>
             </div>
             <div class="tag-list">
               <span class="tag net">A10</span>
