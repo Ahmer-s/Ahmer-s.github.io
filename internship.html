@@ -191,6 +191,8 @@
           <a href="#week6"><span class="wn-dot"></span>Week 6</a>
           <a href="#week7"><span class="wn-dot"></span>Week 7</a>
           <a href="#week8"><span class="wn-dot"></span>Week 8</a>
+          <a href="#week9"><span class="wn-dot"></span>Week 9</a>
+          <a href="#week10"><span class="wn-dot"></span>Week 10</a>
         </nav>
 
         <div class="weeks-content">
@@ -689,6 +691,93 @@ Ik merk dat ik zelfstandiger werk en meer taken zelf mag uitvoeren. Mijn vertrou
               <span class="tag">FTD</span>
               <span class="tag">On-site</span>
               <span class="tag">Meraki</span>
+            </div>
+          </div>
+
+          <!-- WEEK 9 -->
+          <div class="week-entry" id="week9">
+            <div class="week-meta">
+              <span class="week-num">W9</span>
+              <span class="week-dates">Datum: 07 / 04 / 2026</span>
+              <span class="week-badge badge-done">Afgerond</span>
+            </div>
+            <div class="week-title">WiFi/OSPF Troubleshooting, Firewall Policy & CCNA Zelfstudie</div>
+            <div class="week-body">
+              <h4>Troubleshooting WiFi probleem (OSPF)</h4>
+              <p>Op maandag meegekeken naar een ticket waarbij er problemen waren met WiFi. Tijdens het troubleshooten bleek dat OSPF adjacencies zich voortdurend opnieuw aan het opbouwen waren. Dit zorgde voor instabiliteit in het netwerk, waardoor de WiFi niet correct werkte. Een goed voorbeeld van hoe netwerkproblemen vaak een andere oorzaak hebben dan je eerst denkt — het leek een WiFi-probleem, maar was eigenlijk een routingprobleem.</p>
+
+              <h4>Firewall policy voor AnyDesk</h4>
+              <p>Meegewerkt aan een ticket waarbij een klant geen gebruik kon maken van AnyDesk. De firewall blokkeerde het verkeer, waardoor de verbinding niet werkte. We hebben een nieuwe firewall policy aangemaakt zodat AnyDesk toegelaten werd en correct kon functioneren. Een eenvoudige taak, maar het toonde aan hoe belangrijk correcte firewallregels zijn voor applicaties.</p>
+
+              <h4>Zelfstudie (CCNA)</h4>
+              <p>Omdat het een rustige week was zonder dringende (P1) tickets, heb ik tijd besteed aan zelfstudie voor mijn CCNA-certificaat. Dit was positief omdat ik mijn theoretische kennis kon versterken.</p>
+
+              <h4>Verloop</h4>
+              <p>Het WiFi-probleem was interessant omdat het niet direct een typisch WiFi-probleem was, maar eerder een routingprobleem (OSPF). De firewall policy voor AnyDesk was een eenvoudige taak, maar toonde aan hoe belangrijk correcte firewallregels zijn voor applicaties. De rest van de week was rustig, waardoor ik tijd had om mij te focussen op zelfstudie.</p>
+
+              <h4>Zelfreflectie</h4>
+              <p>Deze week was minder druk, maar toch leerrijk. Ik heb geleerd dat netwerkproblemen vaak indirecte oorzaken hebben (zoals OSPF bij WiFi), hoe firewallregels invloed hebben op applicaties, en het belang van zelfstudie in IT. Ik heb deze week minder praktische ervaring opgedaan, maar heb mijn kennis verdiept via studie. Ik merk dat ik meer inzicht krijg in netwerken, maar ik moet nog groeien in het zelfstandig oplossen van complexere problemen.</p>
+            </div>
+            <div class="tasks-list">
+              <div class="task-item"><div class="task-check done">✓</div><span>WiFi/OSPF troubleshooting — adjacency instabiliteit opgelost</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Firewall policy aangemaakt voor AnyDesk</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>CCNA zelfstudie</span></div>
+            </div>
+            <div class="tag-list">
+              <span class="tag net">OSPF</span>
+              <span class="tag net">WiFi</span>
+              <span class="tag">Firewall Policy</span>
+              <span class="tag">AnyDesk</span>
+              <span class="tag">CCNA</span>
+            </div>
+          </div>
+
+          <!-- WEEK 10 -->
+          <div class="week-entry" id="week10">
+            <div class="week-meta">
+              <span class="week-num">W10</span>
+              <span class="week-dates">Datum: 14 / 04 / 2026</span>
+              <span class="week-badge badge-done">Afgerond</span>
+            </div>
+            <div class="week-title">VPN Versie Mismatch, Switch Installatie On-site & Firewall Wijzigingen</div>
+            <div class="week-body">
+              <h4>VPN probleem (versie mismatch)</h4>
+              <p>Meegekeken naar een ticket waarbij klanten geen verbinding konden maken met de Cisco VPN. Na analyse bleek dat er waarschijnlijk een versie mismatch was tussen de clients en de VPN, wat de oorzaak van het probleem was. Dit toonde aan dat compatibiliteit tussen versies cruciaal is.</p>
+
+              <h4>Voorbereiding switch installatie</h4>
+              <p>Een installatie voorbereid voor de volgende dag bij een klant. Dit omvatte: IP-adressen voorbereiden, interfaces configureren en nieuwe VLANs aanmaken volgens de noden van de klant.</p>
+
+              <h4>On-site installatie switch + troubleshooting</h4>
+              <p>We zijn een nieuwe switch gaan installeren bij een klant. We hebben een SFP-module geplaatst en een fiberverbinding opgezet. De configuratie verliep vlot, maar via de patching kregen we geen verbinding. We hebben verschillende zaken gecontroleerd (TX/RX, kabels), maar zonder resultaat. Na verder onderzoek bleek dat er een probleem was in het patch panel. We hebben het patch panel geopend en de bekabeling aangepast, waarna de verbinding correct werkte. Daarna heb ik de configuratie gedocumenteerd en de switch toegevoegd in het Meraki dashboard.</p>
+
+              <h4>Firewall wijzigingen</h4>
+              <p>Een firewall nagekeken waarbij IP-adressen aangepast moesten worden. Gecontroleerd of oude IP's nog gebruikt werden in policies, NAT rules of whitelisting.</p>
+
+              <h4>Monitoring en overige tickets</h4>
+              <p>De rest van de week meegekeken naar verschillende tickets. Veel hiervan waren monitoring alerts waarbij er hoge bandbreedte gebruikt werd, maar zonder kritieke problemen. Daarnaast was er een switch die offline ging. Via CLI nagekeken dat deze was uitgevallen door een power cycle. Na contact met de klant bleek dat dit kwam door een elektrische inspectie.</p>
+
+              <h4>Verloop</h4>
+              <p>Het VPN-probleem was interessant omdat het aantoonde dat compatibiliteit tussen versies belangrijk is. De voorbereiding van de switch installatie verliep goed en hielp om de installatie zelf vlotter te laten verlopen. De interventie bij de klant was het meest leerrijk — het probleem met de patching was niet eenvoudig te vinden en toonde aan dat netwerkproblemen ook fysiek kunnen zijn. Het aanpassen van firewall IP's was een nauwkeurige taak, omdat fouten impact kunnen hebben op de werking van het netwerk.</p>
+
+              <h4>Zelfreflectie</h4>
+              <p>Deze week heb ik geleerd dat voorbereiding en troubleshooting zeer belangrijk zijn in netwerkbeheer. Ik heb bijgeleerd over het belang van versiecompatibiliteit (VPN), het voorbereiden van netwerkconfiguraties, troubleshooting van fysieke netwerkproblemen (patching/fiber), controleren van firewall policies en NAT rules, en communicatie met klanten bij incidenten. Ik merk dat ik steeds zelfstandiger werk en meer inzicht krijg in zowel logische als fysieke netwerkproblemen. Ik heb nog ruimte om sneller problemen te analyseren en efficiënter te troubleshooten, maar mijn vertrouwen groeit duidelijk.</p>
+            </div>
+            <div class="tasks-list">
+              <div class="task-item"><div class="task-check done">✓</div><span>VPN troubleshooting — versie mismatch geïdentificeerd</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Switch installatie voorbereid (IP's, interfaces, VLANs)</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>On-site switch installatie + fiber/patching troubleshooting</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Firewall IP-wijzigingen gecontroleerd (policies, NAT, whitelisting)</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Monitoring alerts en offline switch geanalyseerd via CLI</span></div>
+              <div class="task-item"><div class="task-check done">✓</div><span>Configuratie gedocumenteerd + Meraki dashboard bijgewerkt</span></div>
+            </div>
+            <div class="tag-list">
+              <span class="tag net">Cisco VPN</span>
+              <span class="tag net">Switch</span>
+              <span class="tag">SFP/Fiber</span>
+              <span class="tag">On-site</span>
+              <span class="tag">Firewall</span>
+              <span class="tag">Meraki</span>
+              <span class="tag">Monitoring</span>
             </div>
           </div>
 
